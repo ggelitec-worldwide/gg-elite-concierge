@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GG Elite Concierge — Discounted Flight Booking</title>
+<meta name="description" content="GG Elite Concierge sources discounted airfare through our private booking access. Call or request a quote for your route and dates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/scenes.css">
+</head>
+<body class="scene-flights">
+
+<div class="grain"></div>
+
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
+    <span>DOMESTIC ROUTES</span><span class="dot">·</span>
+    <span>INTERNATIONAL ROUTES</span><span class="dot">·</span>
+    <span>MAJOR CARRIERS</span><span class="dot">·</span>
+    <span>GROUP &amp; FAMILY FARES</span><span class="dot">·</span>
+    <span>DOMESTIC ROUTES</span><span class="dot">·</span>
+    <span>INTERNATIONAL ROUTES</span><span class="dot">·</span>
+    <span>MAJOR CARRIERS</span><span class="dot">·</span>
+    <span>GROUP &amp; FAMILY FARES</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="wordmark">GG <span>ELITE</span></a>
+    <nav class="primary-nav">
+      <a href="cars.html">Cars</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html" class="is-current">Flights</a>
+      <a href="cruises.html">Cruises</a>
+      <a href="events.html">Sports Events</a>
+      <a href="nightlife.html">Nightlife</a>
+      <a href="yachts.html">Yacht Rentals</a>
+    </nav>
+    <a href="tel:+15555555555" class="header-call">Call to Book →</a>
+  </div>
+</header>
+
+<section class="hero hero-compact">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Private Booking Access · Flights Worldwide</p>
+      <h1>One route.<br>A better fare.</h1>
+      <p class="hero-sub">GG Elite Concierge books airfare through private discount access not available on public booking sites. Give us your route and dates — we'll come back with a quote.</p>
+      <div class="hero-actions">
+        <a href="tel:+15555555555" class="btn btn-primary">Call for a Quote</a>
+        <a href="#request" class="btn btn-ghost">Request a Quote</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-row"><span>Coverage</span><strong>Domestic &amp; International</strong></div>
+      <div class="panel-row"><span>Carriers</span><strong>Major airlines</strong></div>
+      <div class="panel-row"><span>Booking</span><strong>Call / Form</strong></div>
+      <div class="panel-row"><span>Lead time</span><strong>Sooner is better</strong></div>
+      <div class="panel-foot">Fares depend on route, dates, and availability at time of booking. Confirmed before payment.</div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap how-grid">
+    <div class="section-head">
+      <p class="eyebrow">The Process</p>
+      <h2>How it works</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="step-mark">Call</span>
+        <h3>Send your route and dates</h3>
+        <p>Origin, destination, travel dates, and number of travelers — the more specific, the faster the quote.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-mark">Confirm</span>
+        <h3>We come back with a fare</h3>
+        <p>You'll get a real quote sourced through our private booking access, confirmed before you commit to anything.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-mark">Book</span>
+        <h3>You approve, we book it</h3>
+        <p>Once you confirm, we finalize the ticket and send you the itinerary directly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="request">
+  <div class="wrap book-grid">
+    <div class="section-head">
+      <p class="eyebrow">Request a Quote</p>
+      <h2>Call for a fare,<br>or send your route</h2>
+    </div>
+    <div class="book-panel">
+      <a href="tel:+15555555555" class="btn btn-primary btn-large">Call (555) 555-5555</a>
+      <p class="book-or">or</p>
+      <form class="book-form" id="requestForm" action="https://formspree.io/f/ggelitec@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New FLIGHT quote request — GG Elite Concierge">
+        <div class="field-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field-row">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="field-row">
+          <label for="origin">Flying From</label>
+          <input type="text" id="origin" name="origin" placeholder="e.g. West Palm Beach (PBI)">
+        </div>
+        <div class="field-row">
+          <label for="destination">Flying To</label>
+          <input type="text" id="destination" name="destination" placeholder="e.g. Cancun (CUN)">
+        </div>
+        <div class="field-row">
+          <label for="dates">Travel Dates</label>
+          <input type="text" id="dates" name="dates" placeholder="e.g. Depart July 4, return July 9">
+        </div>
+        <div class="field-row">
+          <label for="travelers">Travelers</label>
+          <input type="text" id="travelers" name="travelers" placeholder="e.g. 2 adults, 1 child">
+        </div>
+        <div class="field-row">
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Preferred airline, flexible dates, anything else"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-large">Submit Quote Request</button>
+        <p class="form-note" id="formNote">We'll text or call you back with a fare.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="wordmark">GG <span>ELITE</span></div>
+    <nav class="footer-nav">
+      <a href="cars.html">Cars</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="cruises.html">Cruises</a>
+      <a href="events.html">Sports Events</a>
+      <a href="nightlife.html">Nightlife</a>
+      <a href="yachts.html">Yacht Rentals</a>
+    </nav>
+    <p class="footer-disclosure">GG Elite Concierge is an independent booking service and is not affiliated with or endorsed by any airline. Fares are sourced through private booking access and confirmed at the time of quote; pricing and availability are subject to change until ticketed.</p>
+    <p class="footer-copy">© 2026 GG Elite Concierge · Miami, FL</p>
+  </div>
+</footer>
+
+<script src="js/category-form.js"></script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+/* ===========================================================
+   GG ELITE — SCENE BACKGROUNDS
+   Full-bleed atmospheric CSS paintings per page category.
+   Applied via body class. All scenes layer behind .hero content.
+   =========================================================== */
+
+/* ── SHARED HERO SCENE SETUP ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* dark overlay — lighter so scenes breathe */
+  background: linear-gradient(
+    135deg,
+    rgba(10,10,11,0.65) 0%,
+    rgba(10,10,11,0.30) 50%,
+    rgba(10,10,11,0.55) 100%
+  );
+}
+
+/* push hero content above the overlay */
+.hero .wrap { position: relative; z-index: 2; }
+
+/* ── HOMEPAGE — golden bokeh drifting on black ── */
+body.scene-home .hero::before {
+  background:
+    radial-gradient(ellipse 80px 80px at 15% 30%, rgba(201,160,78,0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 50px 50px at 72% 55%, rgba(201,160,78,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 120px 120px at 88% 20%, rgba(201,160,78,0.28) 0%, transparent 70%),
+    radial-gradient(ellipse 60px 60px at 40% 80%, rgba(201,160,78,0.32) 0%, transparent 70%),
+    radial-gradient(ellipse 200px 200px at 50% 50%, rgba(28,20,8,0.6) 0%, transparent 80%),
+    radial-gradient(ellipse 600px 400px at 20% 70%, rgba(40,28,8,0.5) 0%, transparent 80%),
+    linear-gradient(170deg, #0A0A0B 0%, #13100A 40%, #0D0C0B 100%);
+  animation: bokehDrift 12s ease-in-out infinite alternate;
+}
+
+@keyframes bokehDrift {
+  0%   { filter: blur(0px); opacity: 1; }
+  50%  { filter: blur(1px); opacity: 0.9; }
+  100% { filter: blur(0px); opacity: 1; }
+}
+
+/* floating gold bokeh particles via pseudo-elements on children */
+body.scene-home .hero .wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 4px at 10% 20%, rgba(201,160,78,0.6) 0%, transparent 100%),
+    radial-gradient(circle 3px at 25% 65%, rgba(201,160,78,0.4) 0%, transparent 100%),
+    radial-gradient(circle 5px at 60% 15%, rgba(201,160,78,0.5) 0%, transparent 100%),
+    radial-gradient(circle 3px at 80% 70%, rgba(201,160,78,0.35) 0%, transparent 100%),
+    radial-gradient(circle 4px at 45% 85%, rgba(201,160,78,0.45) 0%, transparent 100%),
+    radial-gradient(circle 2px at 90% 40%, rgba(201,160,78,0.5) 0%, transparent 100%);
+  animation: particleFloat 8s ease-in-out infinite alternate;
+}
+
+@keyframes particleFloat {
+  0%   { transform: translateY(0px); opacity: 0.7; }
+  100% { transform: translateY(-14px); opacity: 1; }
+}
+
+/* ── CARS — night road, green light glow, streak ── */
+body.scene-cars .hero::before {
+  background:
+    /* green traffic light bloom */
+    radial-gradient(ellipse 60px 120px at 68% 10%, rgba(0,210,80,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 30px 30px at 68% 8%, rgba(0,255,80,0.80) 0%, transparent 60%),
+    /* headlight streaks converging to vanishing point */
+    linear-gradient(180deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(255,240,180,0.04) 55%,
+      rgba(255,240,180,0.10) 68%,
+      rgba(255,240,180,0.04) 80%,
+      transparent 100%
+    ),
+    /* road surface */
+    linear-gradient(180deg,
+      #0A0A0B 0%,
+      #0D0D0E 35%,
+      #111214 55%,
+      #1A1A1C 70%,
+      #222226 85%,
+      #2A2A2E 100%
+    );
+  animation: roadPulse 4s ease-in-out infinite alternate;
+}
+
+body.scene-cars .hero::after {
+  background: linear-gradient(
+    170deg,
+    rgba(10,10,11,0.88) 0%,
+    rgba(10,10,11,0.50) 55%,
+    rgba(10,10,11,0.70) 100%
+  );
+}
+
+@keyframes roadPulse {
+  0%   { opacity: 1; }
+  100% { opacity: 0.88; }
+}
+
+/* center dividing line on road */
+body.scene-cars .hero .wrap::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 45%;
+  background: linear-gradient(to top,
+    rgba(255,220,80,0.5) 0%,
+    rgba(255,220,80,0.15) 60%,
+    transparent 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── HOTELS — city skyline at blue dusk ── */
+body.scene-hotels .hero::before {
+  background:
+    /* amber glowing windows scattered across lower half */
+    radial-gradient(circle 2px at 22% 62%, rgba(255,180,60,0.95) 0%, transparent 100%),
+    radial-gradient(circle 2px at 26% 58%, rgba(255,180,60,0.80) 0%, transparent 100%),
+    radial-gradient(circle 2px at 31% 65%, rgba(255,200,80,0.90) 0%, transparent 100%),
+    radial-gradient(circle 2px at 38% 55%, rgba(255,180,60,0.80) 0%, transparent 100%),
+    radial-gradient(circle 2px at 42% 60%, rgba(255,200,80,0.90) 0%, transparent 100%),
+    radial-gradient(circle 2px at 48% 52%, rgba(255,180,60,0.80) 0%, transparent 100%),
+    radial-gradient(circle 2px at 55% 68%, rgba(255,200,80,0.90) 0%, transparent 100%),
+    radial-gradient(circle 2px at 62% 59%, rgba(255,180,60,0.80) 0%, transparent 100%),
+    radial-gradient(circle 2px at 68% 63%, rgba(255,200,80,0.90) 0%, transparent 100%),
+    radial-gradient(circle 2px at 75% 56%, rgba(255,180,60,0.80) 0%, transparent 100%),
+    radial-gradient(circle 2px at 80% 62%, rgba(255,200,80,0.4) 0%, transparent 100%),
+    /* city glow on horizon */
+    radial-gradient(ellipse 800px 200px at 50% 75%, rgba(201,160,78,0.32) 0%, transparent 70%),
+    /* sky gradient — blue dusk */
+    linear-gradient(180deg,
+      #070A14 0%,
+      #0C1228 20%,
+      #111830 45%,
+      #1A1A14 65%,
+      #0F0E0A 100%
+    );
+  animation: cityGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes cityGlow {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.93; }
+  100% { opacity: 1; }
+}
+
+/* skyline silhouette */
+body.scene-hotels .hero::after {
+  background:
+    /* building silhouettes */
+    linear-gradient(to top,
+      rgba(5,5,8,1) 0%,
+      rgba(5,5,8,0.95) 8%,
+      rgba(5,5,8,0.0) 9%
+    ),
+    linear-gradient(
+      170deg,
+      rgba(10,10,11,0.85) 0%,
+      rgba(10,10,11,0.50) 55%,
+      rgba(10,10,11,0.70) 100%
+    );
+}
+
+/* ── FLIGHTS — deep indigo sky, gold horizon ── */
+body.scene-flights .hero::before {
+  background:
+    /* contrail arc */
+    radial-gradient(ellipse 400px 4px at 65% 38%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    /* gold horizon glow */
+    radial-gradient(ellipse 100% 120px at 50% 100%, rgba(201,160,78,0.45) 0%, transparent 100%),
+    /* cloud layers */
+    radial-gradient(ellipse 300px 80px at 20% 55%, rgba(255,255,255,0.04) 0%, transparent 100%),
+    radial-gradient(ellipse 250px 60px at 75% 48%, rgba(255,255,255,0.03) 0%, transparent 100%),
+    radial-gradient(ellipse 400px 100px at 50% 65%, rgba(255,255,255,0.03) 0%, transparent 100%),
+    /* deep indigo sky */
+    linear-gradient(180deg,
+      #03050F 0%,
+      #060A1E 15%,
+      #0A1030 35%,
+      #111830 55%,
+      #1C1A10 78%,
+      #12100A 100%
+    );
+  animation: skyGlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes skyGlow {
+  0%   { opacity: 1; }
+  100% { opacity: 0.9; }
+}
+
+/* contrail animation */
+body.scene-flights .hero .wrap::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: -10%;
+  width: 120%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.0) 20%,
+    rgba(255,255,255,0.15) 50%,
+    rgba(255,255,255,0.05) 80%,
+    transparent 100%
+  );
+  transform: rotate(-8deg);
+  z-index: 0;
+  pointer-events: none;
+  animation: contrailFade 8s ease-in-out infinite alternate;
+}
+
+@keyframes contrailFade {
+  0%   { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* ── CRUISES — ocean sunset, warm amber sky ── */
+body.scene-cruises .hero::before {
+  background:
+    /* water shimmer lines */
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 6px,
+      rgba(201,160,78,0.03) 6px,
+      rgba(201,160,78,0.03) 7px
+    ),
+    /* ocean surface glow */
+    radial-gradient(ellipse 100% 200px at 50% 100%, rgba(201,160,78,0.45) 0%, transparent 100%),
+    /* sun reflection on water */
+    radial-gradient(ellipse 80px 300px at 55% 90%, rgba(255,200,80,0.40) 0%, transparent 80%),
+    /* sunset sky */
+    linear-gradient(180deg,
+      #080810 0%,
+      #0F0D18 12%,
+      #1A1020 28%,
+      #2A1810 45%,
+      #3A2010 58%,
+      #2A1808 72%,
+      #180E06 85%,
+      #0C0906 100%
+    );
+  animation: oceanShimmer 7s ease-in-out infinite alternate;
+}
+
+@keyframes oceanShimmer {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.92; }
+  100% { opacity: 1; }
+}
+
+/* horizon line */
+body.scene-cruises .hero .wrap::before {
+  content: '';
+  position: absolute;
+  top: 55%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(201,160,78,0.25) 20%,
+    rgba(255,200,80,0.40) 50%,
+    rgba(201,160,78,0.25) 80%,
+    transparent 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+  animation: horizonPulse 5s ease-in-out infinite alternate;
+}
+
+@keyframes horizonPulse {
+  0%   { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* ── SPORTS — stadium lights, green field ── */
+body.scene-sports .hero::before {
+  background:
+    /* stadium light beams from top corners */
+    radial-gradient(ellipse 300px 600px at 5% 0%, rgba(255,255,200,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 300px 600px at 95% 0%, rgba(255,255,200,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 200px 400px at 25% 0%, rgba(255,255,200,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 200px 400px at 75% 0%, rgba(255,255,200,0.22) 0%, transparent 60%),
+    /* field green at bottom */
+    linear-gradient(180deg,
+      #060608 0%,
+      #080A08 40%,
+      #0A100A 60%,
+      #0C140A 75%,
+      #0A1208 90%,
+      #081008 100%
+    );
+  animation: stadiumLights 5s ease-in-out infinite alternate;
+}
+
+@keyframes stadiumLights {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+/* field stripe lines */
+body.scene-sports .hero .wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0px,
+    transparent 28px,
+    rgba(255,255,255,0.015) 28px,
+    rgba(255,255,255,0.015) 30px
+  );
+}
+
+/* ── NIGHTLIFE — deep purple, wet street glow ── */
+body.scene-nightlife .hero::before {
+  background:
+    /* purple club light spills */
+    radial-gradient(ellipse 200px 300px at 15% 20%, rgba(120,40,180,0.50) 0%, transparent 70%),
+    radial-gradient(ellipse 150px 200px at 80% 30%, rgba(180,40,120,0.40) 0%, transparent 70%),
+    radial-gradient(ellipse 100px 150px at 50% 60%, rgba(201,160,78,0.32) 0%, transparent 70%),
+    /* gold reflections on wet pavement at bottom */
+    radial-gradient(ellipse 600px 100px at 50% 100%, rgba(201,160,78,0.35) 0%, transparent 100%),
+    /* deep dark base */
+    linear-gradient(180deg,
+      #05030A 0%,
+      #080510 20%,
+      #0A0610 45%,
+      #0C0808 70%,
+      #080606 100%
+    );
+  animation: clubPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes clubPulse {
+  0%   { opacity: 1; }
+  33%  { opacity: 0.92; }
+  66%  { opacity: 0.96; }
+  100% { opacity: 1; }
+}
+
+/* wet pavement reflection streaks */
+body.scene-nightlife .hero .wrap::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 40px,
+      rgba(201,160,78,0.04) 40px,
+      rgba(201,160,78,0.04) 42px
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── YACHTS — ocean sunset, warm sky ── */
+body.scene-yachts .hero::before {
+  background:
+    /* sun glow on water */
+    radial-gradient(ellipse 200px 400px at 58% 100%, rgba(255,180,60,0.55) 0%, transparent 80%),
+    /* water surface shimmer */
+    radial-gradient(ellipse 100% 150px at 50% 100%, rgba(201,160,78,0.45) 0%, transparent 100%),
+    /* warm amber sky gradient */
+    linear-gradient(180deg,
+      #080810 0%,
+      #0C0C18 10%,
+      #18100C 30%,
+      #2A1A08 48%,
+      #3A2208 58%,
+      #281608 68%,
+      #160C06 80%,
+      #0A0806 100%
+    );
+  animation: yachtSunset 8s ease-in-out infinite alternate;
+}
+
+@keyframes yachtSunset {
+  0%   { opacity: 1; }
+  100% { opacity: 0.88; }
+}
+
+/* ocean horizon line + water ripples */
+body.scene-yachts .hero::after {
+  background:
+    /* water ripple texture */
+    repeating-linear-gradient(
+      178deg,
+      transparent 0px,
+      transparent 8px,
+      rgba(201,160,78,0.07) 8px,
+      rgba(201,160,78,0.07) 9px
+    ),
+    /* dark overlay for readability */
+    linear-gradient(
+      135deg,
+      rgba(10,10,11,0.80) 0%,
+      rgba(10,10,11,0.50) 50%,
+      rgba(10,10,11,0.68) 100%
+    );
+}
+
+body.scene-yachts .hero .wrap::before {
+  content: '';
+  position: absolute;
+  top: 52%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,180,60,0.20) 15%,
+    rgba(255,200,80,0.50) 50%,
+    rgba(255,180,60,0.20) 85%,
+    transparent 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+  animation: sunsetHorizon 6s ease-in-out infinite alternate;
+}
+
+@keyframes sunsetHorizon {
+  0%   { opacity: 0.5; transform: scaleX(0.95); }
+  100% { opacity: 1;   transform: scaleX(1.0); }
+}
+
+/* ── RESPECT REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  body[class*="scene-"] .hero::before,
+  body[class*="scene-"] .hero::after,
+  body[class*="scene-"] .hero .wrap::before {
+    animation: none !important;
+  }
+}

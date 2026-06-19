@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GG Elite Concierge — Discounted Hotel Booking</title>
+<meta name="description" content="GG Elite Concierge sources discounted hotel stays worldwide through private booking access. Call or request a quote for your dates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/scenes.css">
+</head>
+<body class="scene-hotels">
+
+<div class="grain"></div>
+
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
+    <span>WORLDWIDE PROPERTIES</span><span class="dot">·</span>
+    <span>RESORTS</span><span class="dot">·</span>
+    <span>CITY HOTELS</span><span class="dot">·</span>
+    <span>EXTENDED STAYS</span><span class="dot">·</span>
+    <span>WORLDWIDE PROPERTIES</span><span class="dot">·</span>
+    <span>RESORTS</span><span class="dot">·</span>
+    <span>CITY HOTELS</span><span class="dot">·</span>
+    <span>EXTENDED STAYS</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="wordmark">GG <span>ELITE</span></a>
+    <nav class="primary-nav">
+      <a href="cars.html">Cars</a>
+      <a href="hotels.html" class="is-current">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="cruises.html">Cruises</a>
+      <a href="events.html">Sports Events</a>
+      <a href="nightlife.html">Nightlife</a>
+      <a href="yachts.html">Yacht Rentals</a>
+    </nav>
+    <a href="tel:+15555555555" class="header-call">Call to Book →</a>
+  </div>
+</header>
+
+<section class="hero hero-compact">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Private Booking Access · Hotels Worldwide</p>
+      <h1>Anywhere<br>you're headed.</h1>
+      <p class="hero-sub">GG Elite Concierge sources discounted hotel stays worldwide through private booking access — resorts, city hotels, and extended stays anywhere in the world. Tell us the destination and dates — we'll come back with a quote.</p>
+      <div class="hero-actions">
+        <a href="tel:+15555555555" class="btn btn-primary">Call for a Quote</a>
+        <a href="#request" class="btn btn-ghost">Request a Quote</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-row"><span>Coverage</span><strong>Worldwide</strong></div>
+      <div class="panel-row"><span>Stay types</span><strong>Resort, city, extended</strong></div>
+      <div class="panel-row"><span>Booking</span><strong>Call / Form</strong></div>
+      <div class="panel-row"><span>Lead time</span><strong>Sooner is better</strong></div>
+      <div class="panel-foot">Rates depend on property, dates, and room type. Confirmed before payment.</div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap how-grid">
+    <div class="section-head">
+      <p class="eyebrow">The Process</p>
+      <h2>How it works</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="step-mark">Call</span>
+        <h3>Send your destination and dates</h3>
+        <p>City or resort, check-in/check-out dates, and number of guests — name a specific property if you have one in mind.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-mark">Confirm</span>
+        <h3>We come back with a rate</h3>
+        <p>A discounted rate sourced through our private booking access, confirmed before you commit to anything.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-mark">Stay</span>
+        <h3>You approve, we book it</h3>
+        <p>Once confirmed, we finalize the reservation and send your confirmation directly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="request">
+  <div class="wrap book-grid">
+    <div class="section-head">
+      <p class="eyebrow">Request a Quote</p>
+      <h2>Call for a rate,<br>or send your dates</h2>
+    </div>
+    <div class="book-panel">
+      <a href="tel:+15555555555" class="btn btn-primary btn-large">Call (555) 555-5555</a>
+      <p class="book-or">or</p>
+      <form class="book-form" id="requestForm" action="https://formspree.io/f/ggelitec@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New HOTEL quote request — GG Elite Concierge">
+        <div class="field-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field-row">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="field-row">
+          <label for="destination">Destination / Property</label>
+          <input type="text" id="destination" name="destination" placeholder="e.g. Miami Beach, or a specific hotel">
+        </div>
+        <div class="field-row">
+          <label for="dates">Check-In / Check-Out</label>
+          <input type="text" id="dates" name="dates" placeholder="e.g. July 4 – July 9">
+        </div>
+        <div class="field-row">
+          <label for="guests">Guests &amp; Rooms</label>
+          <input type="text" id="guests" name="guests" placeholder="e.g. 2 adults, 1 room">
+        </div>
+        <div class="field-row">
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Resort vs. city, room type preference, occasion"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-large">Submit Quote Request</button>
+        <p class="form-note" id="formNote">We'll text or call you back with a rate.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="wordmark">GG <span>ELITE</span></div>
+    <nav class="footer-nav">
+      <a href="cars.html">Cars</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="cruises.html">Cruises</a>
+      <a href="events.html">Sports Events</a>
+      <a href="nightlife.html">Nightlife</a>
+      <a href="yachts.html">Yacht Rentals</a>
+    </nav>
+    <p class="footer-disclosure">GG Elite Concierge is an independent booking service and is not affiliated with, endorsed by, or sponsored by any hotel brand or property. Rates are sourced through private booking access and confirmed at the time of quote; pricing and availability are subject to change until booked.</p>
+    <p class="footer-copy">© 2026 GG Elite Concierge · Miami, FL</p>
+  </div>
+</footer>
+
+<script src="js/category-form.js"></script>
+</body>
+</html>

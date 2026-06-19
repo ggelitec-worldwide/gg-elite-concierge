@@ -1,0 +1,83 @@
+# GG Elite Concierge
+
+Multi-page static site for GG Elite Concierge — Miami-based private booking concierge sourcing discounted access to exotic cars, hotels, flights, cruises, sports events, nightlife, and yacht rentals.
+
+## What's in here
+
+```
+index.html          → homepage hub, links out to all 7 category pages
+cars.html            → exotic & luxury car fleet (19 lots, photos, specs)
+hotels.html          → hotel quote request page (worldwide)
+flights.html         → flight quote request page
+cruises.html         → cruise cabin request page
+events.html          → sports ticket request page (football, MLB, MLS, basketball, college football, WWE, tennis, rodeo, auto racing, golf)
+nightlife.html       → Miami nightlife page (nightclub tables, yacht parties, party buses)
+yachts.html          → yacht rental / charter request page
+
+css/style.css        → all styling for every page
+js/fleet.js          → the 19-car fleet data — edit this to update car inventory
+js/main.js           → renders the car fleet grid, filtering, and the car booking form (cars.html only)
+js/category-form.js  → shared form handler for hotels/flights/cruises/events/nightlife/yachts pages
+images/               → car photos referenced by js/fleet.js
+```
+
+## Site structure
+
+The homepage (`index.html`) is a hub with five cards, one per category, each linking to its own page. Every category page follows the same pattern: a short hero, a "how it works" section, and a request form that submits straight to your email. The car page (`cars.html`) is the most built-out since it has a full fleet catalog with photos and specs; the other four are lighter — a short list of what's covered plus a request form — since you didn't want to list specific discount rates for those categories either.
+
+## How to update the car fleet
+
+Everything about car inventory lives in `js/fleet.js`. Each car is one object:
+
+```js
+{
+  lot: "01",
+  name: "Ferrari F8 Spider",
+  color: "Rosso Corsa Red",
+  class: "supercar",        // supercar | suv | sedan | ultra — controls the filter buttons
+  year: "2021–2022",
+  engine: "3.9L Twin-Turbo V8",
+  hp: "710 hp",
+  zeroSixty: "2.7s",
+  price: 1499,               // internal reference only — not shown on the site
+  note: "Convertible. The flagship lot — book ahead for weekends.",
+  image: "images/01-f8-spider.jpg"
+}
+```
+
+To add a car: copy one of these blocks, give it the next lot number, fill in the details, and drop a matching photo in `images/`.
+To remove a car: delete its block.
+
+## How to update hotels / flights / cruises / events
+
+These four pages don't pull from a data file — the "what we cover" cards and the dropdown options are written directly into each page's HTML. To add or remove an item (e.g. a new cruise line or sport/league):
+
+1. Open the relevant `.html` file.
+2. Find the matching `<div class="lot-card simple-card">` block and copy/edit/delete it.
+3. Also update the `<option>` list in that page's form `<select>` so it stays in sync.
+
+## Pricing
+
+No page on the site displays a specific price or discount percentage anywhere. Every item's button says **"Call/Booking for Availability"**, and every form ends with "we'll confirm pricing." This was a deliberate choice — rates and discounts vary by date, demand, and season (especially around major events), so quoting live by phone or after a form submission keeps you flexible and keeps the site from ever showing a stale number.
+
+## Deploying to GitHub Pages
+
+1. Create a new repository on GitHub (e.g. `gg-elite-concierge`).
+2. Upload all the files in this folder, keeping the same structure (all `.html` files at the root, `css/`, `js/`, and `images/` as subfolders).
+3. In the repo, go to **Settings → Pages**.
+4. Under "Build and deployment," set **Source** to "Deploy from a branch."
+5. Set branch to `main` (or `master`) and folder to `/ (root)`. Save.
+6. GitHub will give you a live URL within a minute or two, typically:
+   `https://yourusername.github.io/gg-elite-concierge/`
+
+## Before going live — update these placeholders
+
+- **Phone number**: currently `(555) 555-5555` across all eight pages (`tel:+15555555555`). Find-and-replace with your real number in every file.
+- **Activate the booking forms (one-time step)**: all seven forms (cars, hotels, flights, cruises, events, nightlife, yachts) are wired to send to `ggelitec@gmail.com` via Formspree at `https://formspree.io/f/ggelitec@gmail.com`. The **first submission from any of these forms** will trigger a one-time confirmation email to that inbox — open it and click "Confirm," or future submissions won't go through. After that single confirmation, every form on every page sends straight to that inbox automatically.
+- **Footer disclosure text** — each category page has a disclosure stating GG Elite is independent and not affiliated with the airlines/cruise lines/parks/venues named. This is written generically; have it reviewed against your actual access/membership terms (e.g. your discount program's terms of use) before publishing, since some discount programs restrict how their access can be marketed or resold.
+
+## Notes
+
+- Car specs (engine, horsepower, 0–60) are representative figures for the named year/trim and may vary by exact build — worth a quick gut-check against the fleet partner's actual units before publishing.
+- The hotels/flights/cruises/events pages list illustrative coverage rather than your complete discount catalog. The sports page covers ten categories: football, MLB, MLS, basketball, college football, WWE, tennis, rodeo, auto racing, and golf.
+- The yacht rentals page (`yachts.html`) lists five vessels available year-round. Update vessel names, capacity, or notes as your fleet changes.

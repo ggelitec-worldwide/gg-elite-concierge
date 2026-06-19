@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GG Elite Concierge — Discounted Cruise Booking</title>
+<meta name="description" content="GG Elite Concierge sources discounted cruise cabins across major cruise lines through private booking access. Call or request a quote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/scenes.css">
+</head>
+<body class="scene-cruises">
+
+<div class="grain"></div>
+
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
+    <span>CARIBBEAN</span><span class="dot">·</span>
+    <span>MEDITERRANEAN</span><span class="dot">·</span>
+    <span>ALASKA</span><span class="dot">·</span>
+    <span>MAJOR CRUISE LINES</span><span class="dot">·</span>
+    <span>CARIBBEAN</span><span class="dot">·</span>
+    <span>MEDITERRANEAN</span><span class="dot">·</span>
+    <span>ALASKA</span><span class="dot">·</span>
+    <span>MAJOR CRUISE LINES</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="wordmark">GG <span>ELITE</span></a>
+    <nav class="primary-nav">
+      <a href="cars.html">Cars</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="cruises.html" class="is-current">Cruises</a>
+      <a href="events.html">Sports Events</a>
+      <a href="nightlife.html">Nightlife</a>
+      <a href="yachts.html">Yacht Rentals</a>
+    </nav>
+    <a href="tel:+15555555555" class="header-call">Call to Book →</a>
+  </div>
+</header>
+
+<section class="hero hero-compact">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Private Booking Access · Cruises Worldwide</p>
+      <h1>Set sail<br>for less.</h1>
+      <p class="hero-sub">GG Elite Concierge sources discounted cabins across major cruise lines through private booking access. Tell us the line, ship, or destination — we'll come back with a quote.</p>
+      <div class="hero-actions">
+        <a href="tel:+15555555555" class="btn btn-primary">Call for a Quote</a>
+        <a href="#lines" class="btn btn-ghost">See Cruise Lines</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-row"><span>Coverage</span><strong>Major cruise lines</strong></div>
+      <div class="panel-row"><span>Cabins</span><strong>Interior to suite</strong></div>
+      <div class="panel-row"><span>Booking</span><strong>Call / Form</strong></div>
+      <div class="panel-row"><span>Lead time</span><strong>Sooner is better</strong></div>
+      <div class="panel-foot">Rates depend on line, ship, sail date, and cabin type. Confirmed before payment.</div>
+    </div>
+  </div>
+</section>
+
+<section class="fleet" id="lines">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Cruise Lines We Cover</p>
+      <h2>A few of the lines</h2>
+      <p class="section-sub">Not seeing your preferred line? Ask anyway — submit a request below and we'll confirm.</p>
+    </div>
+    <div class="fleet-grid simple-grid">
+      <div class="lot-card simple-card">
+        <div class="lot-card-body">
+          <h3 class="lot-name">Royal Caribbean</h3>
+          <p class="lot-note">Caribbean, Bahamas, Mexico, and longer international itineraries.</p>
+          <div class="lot-foot"><a href="#request" class="btn btn-primary btn-small select-item" data-item-name="Royal Caribbean">Call/Booking for Availability</a></div>
+        </div>
+      </div>
+      <div class="lot-card simple-card">
+        <div class="lot-card-body">
+          <h3 class="lot-name">Carnival Cruise Line</h3>
+          <p class="lot-note">Short getaways and longer Caribbean sailings out of Florida ports.</p>
+          <div class="lot-foot"><a href="#request" class="btn btn-primary btn-small select-item" data-item-name="Carnival Cruise Line">Call/Booking for Availability</a></div>
+        </div>
+      </div>
+      <div class="lot-card simple-card">
+        <div class="lot-card-body">
+          <h3 class="lot-name">Norwegian Cruise Line</h3>
+          <p class="lot-note">Caribbean, Alaska, Europe — flexible dining and itinerary options.</p>
+          <div class="lot-foot"><a href="#request" class="btn btn-primary btn-small select-item" data-item-name="Norwegian Cruise Line">Call/Booking for Availability</a></div>
+        </div>
+      </div>
+      <div class="lot-card simple-card">
+        <div class="lot-card-body">
+          <h3 class="lot-name">Disney Cruise Line</h3>
+          <p class="lot-note">Family sailings to the Caribbean, Bahamas, and Disney's private island.</p>
+          <div class="lot-foot"><a href="#request" class="btn btn-primary btn-small select-item" data-item-name="Disney Cruise Line">Call/Booking for Availability</a></div>
+        </div>
+      </div>
+      <div class="lot-card simple-card">
+        <div class="lot-card-body">
+          <h3 class="lot-name">Princess Cruises</h3>
+          <p class="lot-note">Alaska, Mediterranean, and classic Caribbean routes.</p>
+          <div class="lot-foot"><a href="#request" class="btn btn-primary btn-small select-item" data-item-name="Princess Cruises">Call/Booking for Availability</a></div>
+        </div>
+      </div>
+      <div class="lot-card simple-card">
+        <div class="lot-card-body">
+          <h3 class="lot-name">Celebrity Cruises</h3>
+          <p class="lot-note">Upscale itineraries across the Caribbean, Europe, and Galapagos.</p>
+          <div class="lot-foot"><a href="#request" class="btn btn-primary btn-small select-item" data-item-name="Celebrity Cruises">Call/Booking for Availability</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap how-grid">
+    <div class="section-head">
+      <p class="eyebrow">The Process</p>
+      <h2>How it works</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="step-mark">Call</span>
+        <h3>Tell us the line and dates</h3>
+        <p>Cruise line, destination or ship if you know it, sail date, and number of guests.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-mark">Confirm</span>
+        <h3>We send you a rate</h3>
+        <p>A discounted cabin rate sourced through our access, confirmed before you commit.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-mark">Sail</span>
+        <h3>You approve, we book it</h3>
+        <p>Once confirmed, we finalize your cabin and send your booking confirmation directly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="request">
+  <div class="wrap book-grid">
+    <div class="section-head">
+      <p class="eyebrow">Request a Quote</p>
+      <h2>Call for a rate,<br>or send your dates</h2>
+    </div>
+    <div class="book-panel">
+      <a href="tel:+15555555555" class="btn btn-primary btn-large">Call (555) 555-5555</a>
+      <p class="book-or">or</p>
+      <form class="book-form" id="requestForm" action="https://formspree.io/f/ggelitec@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New CRUISE quote request — GG Elite Concierge">
+        <div class="field-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field-row">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="field-row">
+          <label for="itemSelect">Cruise Line</label>
+          <select id="itemSelect" name="cruiseLine">
+            <option value="">Select a line…</option>
+            <option value="Royal Caribbean">Royal Caribbean</option>
+            <option value="Carnival Cruise Line">Carnival Cruise Line</option>
+            <option value="Norwegian Cruise Line">Norwegian Cruise Line</option>
+            <option value="Disney Cruise Line">Disney Cruise Line</option>
+            <option value="Princess Cruises">Princess Cruises</option>
+            <option value="Celebrity Cruises">Celebrity Cruises</option>
+            <option value="Other / not listed">Other / not listed</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <label for="dates">Sail Dates</label>
+          <input type="text" id="dates" name="dates" placeholder="e.g. Week of August 10">
+        </div>
+        <div class="field-row">
+          <label for="guests">Guests</label>
+          <input type="text" id="guests" name="guests" placeholder="e.g. 2 adults, 2 children">
+        </div>
+        <div class="field-row">
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Cabin type preference, destination, ship name if known"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-large">Submit Cruise Request</button>
+        <p class="form-note" id="formNote">We'll text or call you back with a rate.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="wordmark">GG <span>ELITE</span></div>
+    <nav class="footer-nav">
+      <a href="cars.html">Cars</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="cruises.html">Cruises</a>
+      <a href="events.html">Sports Events</a>
+      <a href="nightlife.html">Nightlife</a>
+      <a href="yachts.html">Yacht Rentals</a>
+    </nav>
+    <p class="footer-disclosure">GG Elite Concierge is an independent booking service and is not affiliated with, endorsed by, or sponsored by any cruise line named above. Cabin rates are sourced through private discount access and confirmed at the time of quote; pricing and availability are subject to change until booked.</p>
+    <p class="footer-copy">© 2026 GG Elite Concierge · Miami, FL</p>
+  </div>
+</footer>
+
+<script src="js/category-form.js"></script>
+</body>
+</html>
