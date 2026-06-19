@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GG Elite Concierge — Exotic Car Fleet, Miami</title>
+<meta name="description" content="Private exotic car concierge serving Miami, Florida. Ferrari, Lamborghini, Rolls-Royce, Mercedes-Benz. Call or book — we coordinate everything.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   GG ELITE CONCIERGE — design tokens
+   Color: ink #0A0A0B, ivory #F5F0E6, brass #C9A04E, surface #1C1C1E, mute #8A8378
+   Type:  display = Bodoni Moda, body/UI = Inter, data = Inter Tight
+   =========================================================== */
+
+:root {
+  --ink: #0A0A0B;
+  --ivory: #F5F0E6;
+  --brass: #C9A04E;
+  --brass-dim: #8A6F3D;
+  --surface: #161616;
+  --surface-2: #1F1F1E;
+  --line: rgba(245, 240, 230, 0.12);
+  --line-strong: rgba(245, 240, 230, 0.22);
+  --mute: #9A938A;
+
+  --display: 'Bodoni Moda', 'Times New Roman', serif;
+  --body: 'Inter', system-ui, sans-serif;
+  --data: 'Inter Tight', 'Inter', system-ui, sans-serif;
+
+  --container: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--ivory);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+ul, ol { margin: 0; padding: 0; }
+
+.wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* subtle film-grain overlay for texture, very low opacity */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* ===== TICKER ===== */
+.ticker-wrap {
+  background: var(--brass);
+  color: var(--ink);
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  z-index: 20;
+}
+.ticker {
+  display: inline-flex;
+  gap: 28px;
+  padding: 7px 0;
+  font-family: var(--data);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: scrollTicker 32s linear infinite;
+  padding-left: 28px;
+}
+.ticker .dot { opacity: 0.5; }
+@keyframes scrollTicker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(10, 10, 11, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+.wordmark {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+}
+.wordmark span { color: var(--brass); }
+
+.primary-nav {
+  display: flex;
+  gap: 36px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.primary-nav a {
+  color: var(--mute);
+  transition: color 0.2s ease;
+}
+.primary-nav a:hover { color: var(--ivory); }
+.primary-nav a.is-current { color: var(--brass); }
+
+.header-call {
+  border: 1px solid var(--brass-dim);
+  color: var(--brass);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+.header-call:hover { background: var(--brass); color: var(--ink); }
+
+@media (max-width: 860px) {
+  .primary-nav { display: none; }
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  padding: 14px 28px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-primary { background: var(--brass); color: var(--ink); }
+.btn-primary:hover { background: #DCB766; }
+.btn-ghost { border-color: var(--line-strong); color: var(--ivory); }
+.btn-ghost:hover { border-color: var(--brass); color: var(--brass); }
+.btn-large { padding: 17px 32px; font-size: 15px; width: 100%; }
+.btn-small { padding: 9px 16px; font-size: 12px; }
+
+/* ===== HERO ===== */
+.hero { padding: 96px 0 80px; }
+.hero-compact { padding: 56px 0 64px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 64px;
+  align-items: end;
+}
+.eyebrow {
+  font-family: var(--data);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 18px;
+}
+.hero-copy h1 {
+  font-family: var(--display);
+  font-size: clamp(48px, 7vw, 84px);
+  line-height: 1.02;
+  font-weight: 600;
+  margin: 0 0 24px;
+  letter-spacing: -0.01em;
+}
+.hero-sub {
+  font-size: 17px;
+  color: var(--mute);
+  max-width: 480px;
+  margin: 0 0 36px;
+}
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.hero-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 28px;
+}
+.panel-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.panel-row span { color: var(--mute); }
+.panel-row strong { font-family: var(--data); font-weight: 600; }
+.panel-row:last-of-type { border-bottom: none; }
+.panel-foot {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--mute);
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== SECTION HEAD ===== */
+.section-head { max-width: 620px; margin-bottom: 48px; }
+.section-head h2 {
+  font-family: var(--display);
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 600;
+  margin: 0 0 14px;
+  line-height: 1.08;
+}
+.section-sub { color: var(--mute); font-size: 15px; margin: 0; }
+
+/* ===== FLEET ===== */
+.fleet { padding: 80px 0; border-top: 1px solid var(--line); }
+
+.fleet-filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  font-family: var(--data);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--mute);
+  padding: 9px 16px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filter-btn:hover { color: var(--ivory); border-color: var(--ivory); }
+.filter-btn.is-active { background: var(--brass); border-color: var(--brass); color: var(--ink); }
+
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.lot-card {
+  background: var(--ink);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+}
+
+/* simple-card: used on theme-parks / cruises / events where there's no photo */
+.simple-card { min-height: 0; }
+.simple-card .lot-card-body { padding-top: 26px; }
+.simple-card .lot-name { margin-top: 0; }
+
+.lot-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+}
+.lot-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.92) contrast(1.04);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+.lot-card:hover .lot-photo img {
+  transform: scale(1.04);
+  filter: saturate(1) contrast(1.04);
+}
+.lot-photo-num {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(10, 10, 11, 0.78);
+  border: 1px solid rgba(245, 240, 230, 0.25);
+  color: var(--brass);
+  font-family: var(--data);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 5px 10px;
+  backdrop-filter: blur(4px);
+}
+.lot-card-body {
+  padding: 22px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.lot-card-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.lot-num {
+  font-family: var(--data);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--brass);
+}
+.lot-year {
+  font-family: var(--data);
+  font-size: 12px;
+  color: var(--mute);
+}
+.lot-name {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  line-height: 1.15;
+}
+.lot-color {
+  font-size: 13px;
+  color: var(--mute);
+  margin: 0 0 18px;
+}
+.lot-specs {
+  display: flex;
+  gap: 18px;
+  margin: 0 0 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.lot-specs div { display: flex; flex-direction: column; gap: 3px; }
+.lot-specs dt {
+  font-family: var(--data);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.lot-specs dd {
+  margin: 0;
+  font-family: var(--data);
+  font-size: 13px;
+  font-weight: 600;
+}
+.lot-note {
+  font-size: 13px;
+  color: var(--mute);
+  flex-grow: 1;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+.lot-foot {
+  display: flex;
+}
+.lot-foot .btn { width: 100%; text-align: center; }
+
+@media (max-width: 980px) {
+  .fleet-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .fleet-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== CATEGORY GRID (homepage hub) ===== */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.category-card {
+  background: var(--ink);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s ease;
+}
+.category-card:hover { background: var(--surface); }
+.category-eyebrow {
+  font-family: var(--data);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--brass);
+  margin-bottom: 18px;
+}
+.category-card h3 {
+  font-family: var(--display);
+  font-size: 23px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  line-height: 1.15;
+}
+.category-card p {
+  font-size: 14px;
+  color: var(--mute);
+  margin: 0 0 22px;
+  flex-grow: 1;
+  line-height: 1.55;
+}
+.category-link {
+  font-family: var(--data);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ivory);
+  transition: color 0.2s ease;
+}
+.category-card:hover .category-link { color: var(--brass); }
+
+@media (max-width: 980px) {
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .category-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== HOW IT WORKS ===== */
+.how { padding: 80px 0; border-top: 1px solid var(--line); background: var(--surface); }
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.how-step { border-top: 2px solid var(--brass); padding-top: 22px; }
+.step-mark {
+  font-family: var(--data);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+.how-step h3 {
+  font-family: var(--display);
+  font-size: 21px;
+  font-weight: 600;
+  margin: 12px 0 10px;
+}
+.how-step p { color: var(--mute); font-size: 14px; margin: 0; }
+
+@media (max-width: 860px) {
+  .how-steps { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ===== EVENTS ===== */
+.events { padding: 80px 0; border-top: 1px solid var(--line); }
+.events-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 56px;
+  align-items: center;
+}
+.events-copy h2 {
+  font-family: var(--display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  margin: 0 0 18px;
+  line-height: 1.1;
+}
+.events-copy p { color: var(--mute); font-size: 15px; max-width: 480px; margin: 0 0 28px; }
+
+.events-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 28px;
+}
+.events-card-label {
+  font-family: var(--data);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 16px;
+}
+.events-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.events-row:last-child { border-bottom: none; }
+.events-row span:first-child { color: var(--mute); }
+.events-row span:last-child { font-family: var(--data); font-weight: 600; text-align: right; }
+
+@media (max-width: 860px) {
+  .events-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== BOOK ===== */
+.book { padding: 80px 0; border-top: 1px solid var(--line); background: var(--surface); }
+.book-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+}
+.book-panel {
+  background: var(--ink);
+  border: 1px solid var(--line);
+  padding: 32px;
+}
+.book-or {
+  text-align: center;
+  color: var(--mute);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 22px 0;
+}
+.field-row { margin-bottom: 18px; }
+.field-row label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-bottom: 8px;
+}
+.field-row input,
+.field-row select,
+.field-row textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  color: var(--ivory);
+  padding: 12px 14px;
+  font-family: var(--body);
+  font-size: 14px;
+  border-radius: 2px;
+}
+.field-row input:focus,
+.field-row select:focus,
+.field-row textarea:focus {
+  outline: none;
+  border-color: var(--brass);
+}
+.form-note {
+  font-size: 12px;
+  color: var(--mute);
+  text-align: center;
+  margin: 14px 0 0;
+}
+.form-note-success { color: var(--brass); }
+.form-note-error { color: #D87C5A; }
+
+@media (max-width: 860px) {
+  .book-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== FOOTER ===== */
+.site-footer { padding: 48px 0; border-top: 1px solid var(--line); }
+.footer-inner { display: flex; flex-direction: column; gap: 18px; }
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.footer-nav a { color: var(--mute); transition: color 0.2s ease; }
+.footer-nav a:hover { color: var(--brass); }
+.footer-disclosure {
+  font-size: 12px;
+  color: var(--mute);
+  max-width: 640px;
+  line-height: 1.6;
+  margin: 0;
+}
+.footer-copy { font-size: 12px; color: var(--mute); margin: 0; }
+
+/* ===========================================================
+   GG ELITE — SCENE BACKGROUNDS
+   Full-bleed atmospheric CSS paintings per page category.
+   Applied via body class. All scenes layer behind .hero content.
+   =========================================================== */
+
+/* ── SHARED HERO SCENE SETUP ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* dark overlay — lighter so scenes breathe */
+  background: linear-gradient(
+    135deg,
+    rgba(10,10,11,0.65) 0%,
+    rgba(10,10,11,0.30) 50%,
+    rgba(10,10,11,0.55) 100%
+  );
+}
+
+/* push hero content above the overlay */
+.hero .wrap { position: relative; z-index: 2; }
+
+/* ── HOMEPAGE — golden bokeh drifting on black ── */
+body.scene-home .hero::before {
+  background:
+    radial-gradient(ellipse 80px 80px at 15% 30%, rgba(201,160,78,0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 50px 50px at 72% 55%, rgba(201,160,78,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 120px 120px at 88% 20%, rgba(201,160,78,0.28) 0%, transparent 70%),
+    radial-gradient(ellipse 60px 60px at 40% 80%, rgba(201,160,78,0.32) 0%, transparent 70%),
+    radial-gradient(ellipse 200px 200px at 50% 50%, rgba(28,20,8,0.6) 0%, transparent 80%),
+    radial-gradient(ellipse 600px 400px at 20% 70%, rgba(40,28,8,0.5) 0%, transparent 80%),
+    linear-gradient(170deg, #0A0A0B 0%, #13100A 40%, #0D0C0B 100%);
+  animation: bokehDrift 12s ease-in-out infinite alternate;
+}
+
+@keyframes bokehDrift {
+  0%   { filter: blur(0px); opacity: 1; }
+  50%  { filter: blur(1px); opacity: 0.9; }
+  100% { filter: blur(0px); opacity: 1; }
+}
+
+/* floating gold bokeh particles via pseudo-elements on children */
+body.scene-home .hero .wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 4px at 10% 20%, rgba(201,160,78,0.6) 0%, transparent 100%),
+    radial-gradient(circle 3px at 25% 65%, rgba(201,160,78,0.4) 0%, transparent 100%),
+    radial-gradient(circle 5px at 60% 15%, rgba(201,160,78,0.5) 0%, transparent 100%),
+    radial-gradient(circle 3px at 80% 70%, rgba(201,160,78,0.35) 0%, transparent 100%),
+    radial-gradient(circle 4px at 45% 85%, rgba(201,160,78,0.45) 0%, transparent 100%),
+    radial-gradient(circle 2px at 90% 40%, rgba(201,160,78,0.5) 0%, transparent 100%);
+  animation: particleFloat 8s ease-in-out infinite alternate;
+}
+
+@keyframes particleFloat {
+  0%   { transform: translateY(0px); opacity: 0.7; }
+  100% { transform: translateY(-14px); opacity: 1; }
+}
+
+/* ── CARS — night road, green light glow, streak ── */
+body.scene-cars .hero::before {
+  background:
+    /* green traffic light bloom */
+    radial-gradient(ellipse 60px 120px at 68% 10%, rgba(0,210,80,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 30px 30px at 68% 8%, rgba(0,255,80,0.80) 0%, transparent 60%),
+    /* headlight streaks converging to vanishing point */
+    linear-gradient(180deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(255,240,180,0.04) 55%,
+      rgba(255,240,180,0.10) 68%,
+      rgba(255,240,180,0.04) 80%,
+      transparent 100%
+    ),
+    /* road surface */
+    linear-gradient(180deg,
+      #0A0A0B 0%,
+      #0D0D0E 35%,
+      #111214 55%,
+      #1A1A1C 70%,
+      #222226 85%,
+      #2A2A2E 100%
+    );
+  animation: roadPulse 4s ease-in-out infinite alternate;
+}
+
+body.scene-cars .hero::after {
+  background: linear-gradient(
+    170deg,
+    rgba(10,10,11,0.88) 0%,
+    rgba(10,10,11,0.50) 55%,
+    rgba(10,10,11,0.70) 100%
+  );
+}
+
+@keyframes roadPulse {
+  0%   { opacity: 1; }
+  100% { opacity: 0.88; }
+}
+
+/* center dividing line on road */
+body.scene-cars .hero .wrap::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 45%;
+  background: linear-gradient(to top,
+    rgba(255,220,80,0.5) 0%,
+    rgba(255,220,80,0.15) 60%,
+    transparent 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── HOTELS — city skyline at blue dusk ── */
+body.scene-hotels .hero::before {
+  background:
+    /* amber glowing windows scattered across lower half */
+    radial-gradient(circle 2px at 22% 62%, rgba(255,180,60,0.95) 0%, transparent 100%),
+    radial-gradient(circle 2px at 26% 58%, rgba(255,180,60,0.80) 0%, transparent 100%),
+    radial-gradient(circle 2px at 31% 65%, rgba(255,200,80,0.90) 0%, transparent 100%),
+    radial-gradient(circle 2px at 38% 55%, rgba(255,180,60,0.80) 0%, transparent 100%),
+    radial-gradient(circle 2px at 42% 60%, rgba(255,200,80,0.90) 0%, transparent 100%),
+    radial-gradient(circle 2px at 48% 52%, rgba(255,180,60,0.80) 0%, transparent 100%),
+    radial-gradient(circle 2px at 55% 68%, rgba(255,200,80,0.90) 0%, transparent 100%),
+    radial-gradient(circle 2px at 62% 59%, rgba(255,180,60,0.80) 0%, transparent 100%),
+    radial-gradient(circle 2px at 68% 63%, rgba(255,200,80,0.90) 0%, transparent 100%),
+    radial-gradient(circle 2px at 75% 56%, rgba(255,180,60,0.80) 0%, transparent 100%),
+    radial-gradient(circle 2px at 80% 62%, rgba(255,200,80,0.4) 0%, transparent 100%),
+    /* city glow on horizon */
+    radial-gradient(ellipse 800px 200px at 50% 75%, rgba(201,160,78,0.32) 0%, transparent 70%),
+    /* sky gradient — blue dusk */
+    linear-gradient(180deg,
+      #070A14 0%,
+      #0C1228 20%,
+      #111830 45%,
+      #1A1A14 65%,
+      #0F0E0A 100%
+    );
+  animation: cityGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes cityGlow {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.93; }
+  100% { opacity: 1; }
+}
+
+/* skyline silhouette */
+body.scene-hotels .hero::after {
+  background:
+    /* building silhouettes */
+    linear-gradient(to top,
+      rgba(5,5,8,1) 0%,
+      rgba(5,5,8,0.95) 8%,
+      rgba(5,5,8,0.0) 9%
+    ),
+    linear-gradient(
+      170deg,
+      rgba(10,10,11,0.85) 0%,
+      rgba(10,10,11,0.50) 55%,
+      rgba(10,10,11,0.70) 100%
+    );
+}
+
+/* ── FLIGHTS — deep indigo sky, gold horizon ── */
+body.scene-flights .hero::before {
+  background:
+    /* contrail arc */
+    radial-gradient(ellipse 400px 4px at 65% 38%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    /* gold horizon glow */
+    radial-gradient(ellipse 100% 120px at 50% 100%, rgba(201,160,78,0.45) 0%, transparent 100%),
+    /* cloud layers */
+    radial-gradient(ellipse 300px 80px at 20% 55%, rgba(255,255,255,0.04) 0%, transparent 100%),
+    radial-gradient(ellipse 250px 60px at 75% 48%, rgba(255,255,255,0.03) 0%, transparent 100%),
+    radial-gradient(ellipse 400px 100px at 50% 65%, rgba(255,255,255,0.03) 0%, transparent 100%),
+    /* deep indigo sky */
+    linear-gradient(180deg,
+      #03050F 0%,
+      #060A1E 15%,
+      #0A1030 35%,
+      #111830 55%,
+      #1C1A10 78%,
+      #12100A 100%
+    );
+  animation: skyGlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes skyGlow {
+  0%   { opacity: 1; }
+  100% { opacity: 0.9; }
+}
+
+/* contrail animation */
+body.scene-flights .hero .wrap::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: -10%;
+  width: 120%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.0) 20%,
+    rgba(255,255,255,0.15) 50%,
+    rgba(255,255,255,0.05) 80%,
+    transparent 100%
+  );
+  transform: rotate(-8deg);
+  z-index: 0;
+  pointer-events: none;
+  animation: contrailFade 8s ease-in-out infinite alternate;
+}
+
+@keyframes contrailFade {
+  0%   { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* ── CRUISES — ocean sunset, warm amber sky ── */
+body.scene-cruises .hero::before {
+  background:
+    /* water shimmer lines */
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 6px,
+      rgba(201,160,78,0.03) 6px,
+      rgba(201,160,78,0.03) 7px
+    ),
+    /* ocean surface glow */
+    radial-gradient(ellipse 100% 200px at 50% 100%, rgba(201,160,78,0.45) 0%, transparent 100%),
+    /* sun reflection on water */
+    radial-gradient(ellipse 80px 300px at 55% 90%, rgba(255,200,80,0.40) 0%, transparent 80%),
+    /* sunset sky */
+    linear-gradient(180deg,
+      #080810 0%,
+      #0F0D18 12%,
+      #1A1020 28%,
+      #2A1810 45%,
+      #3A2010 58%,
+      #2A1808 72%,
+      #180E06 85%,
+      #0C0906 100%
+    );
+  animation: oceanShimmer 7s ease-in-out infinite alternate;
+}
+
+@keyframes oceanShimmer {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.92; }
+  100% { opacity: 1; }
+}
+
+/* horizon line */
+body.scene-cruises .hero .wrap::before {
+  content: '';
+  position: absolute;
+  top: 55%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(201,160,78,0.25) 20%,
+    rgba(255,200,80,0.40) 50%,
+    rgba(201,160,78,0.25) 80%,
+    transparent 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+  animation: horizonPulse 5s ease-in-out infinite alternate;
+}
+
+@keyframes horizonPulse {
+  0%   { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* ── SPORTS — stadium lights, green field ── */
+body.scene-sports .hero::before {
+  background:
+    /* stadium light beams from top corners */
+    radial-gradient(ellipse 300px 600px at 5% 0%, rgba(255,255,200,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 300px 600px at 95% 0%, rgba(255,255,200,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 200px 400px at 25% 0%, rgba(255,255,200,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 200px 400px at 75% 0%, rgba(255,255,200,0.22) 0%, transparent 60%),
+    /* field green at bottom */
+    linear-gradient(180deg,
+      #060608 0%,
+      #080A08 40%,
+      #0A100A 60%,
+      #0C140A 75%,
+      #0A1208 90%,
+      #081008 100%
+    );
+  animation: stadiumLights 5s ease-in-out infinite alternate;
+}
+
+@keyframes stadiumLights {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+/* field stripe lines */
+body.scene-sports .hero .wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0px,
+    transparent 28px,
+    rgba(255,255,255,0.015) 28px,
+    rgba(255,255,255,0.015) 30px
+  );
+}
+
+/* ── NIGHTLIFE — deep purple, wet street glow ── */
+body.scene-nightlife .hero::before {
+  background:
+    /* purple club light spills */
+    radial-gradient(ellipse 200px 300px at 15% 20%, rgba(120,40,180,0.50) 0%, transparent 70%),
+    radial-gradient(ellipse 150px 200px at 80% 30%, rgba(180,40,120,0.40) 0%, transparent 70%),
+    radial-gradient(ellipse 100px 150px at 50% 60%, rgba(201,160,78,0.32) 0%, transparent 70%),
+    /* gold reflections on wet pavement at bottom */
+    radial-gradient(ellipse 600px 100px at 50% 100%, rgba(201,160,78,0.35) 0%, transparent 100%),
+    /* deep dark base */
+    linear-gradient(180deg,
+      #05030A 0%,
+      #080510 20%,
+      #0A0610 45%,
+      #0C0808 70%,
+      #080606 100%
+    );
+  animation: clubPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes clubPulse {
+  0%   { opacity: 1; }
+  33%  { opacity: 0.92; }
+  66%  { opacity: 0.96; }
+  100% { opacity: 1; }
+}
+
+/* wet pavement reflection streaks */
+body.scene-nightlife .hero .wrap::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 40px,
+      rgba(201,160,78,0.04) 40px,
+      rgba(201,160,78,0.04) 42px
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── YACHTS — ocean sunset, warm sky ── */
+body.scene-yachts .hero::before {
+  background:
+    /* sun glow on water */
+    radial-gradient(ellipse 200px 400px at 58% 100%, rgba(255,180,60,0.55) 0%, transparent 80%),
+    /* water surface shimmer */
+    radial-gradient(ellipse 100% 150px at 50% 100%, rgba(201,160,78,0.45) 0%, transparent 100%),
+    /* warm amber sky gradient */
+    linear-gradient(180deg,
+      #080810 0%,
+      #0C0C18 10%,
+      #18100C 30%,
+      #2A1A08 48%,
+      #3A2208 58%,
+      #281608 68%,
+      #160C06 80%,
+      #0A0806 100%
+    );
+  animation: yachtSunset 8s ease-in-out infinite alternate;
+}
+
+@keyframes yachtSunset {
+  0%   { opacity: 1; }
+  100% { opacity: 0.88; }
+}
+
+/* ocean horizon line + water ripples */
+body.scene-yachts .hero::after {
+  background:
+    /* water ripple texture */
+    repeating-linear-gradient(
+      178deg,
+      transparent 0px,
+      transparent 8px,
+      rgba(201,160,78,0.07) 8px,
+      rgba(201,160,78,0.07) 9px
+    ),
+    /* dark overlay for readability */
+    linear-gradient(
+      135deg,
+      rgba(10,10,11,0.80) 0%,
+      rgba(10,10,11,0.50) 50%,
+      rgba(10,10,11,0.68) 100%
+    );
+}
+
+body.scene-yachts .hero .wrap::before {
+  content: '';
+  position: absolute;
+  top: 52%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,180,60,0.20) 15%,
+    rgba(255,200,80,0.50) 50%,
+    rgba(255,180,60,0.20) 85%,
+    transparent 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+  animation: sunsetHorizon 6s ease-in-out infinite alternate;
+}
+
+@keyframes sunsetHorizon {
+  0%   { opacity: 0.5; transform: scaleX(0.95); }
+  100% { opacity: 1;   transform: scaleX(1.0); }
+}
+
+/* ── RESPECT REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  body[class*="scene-"] .hero::before,
+  body[class*="scene-"] .hero::after,
+  body[class*="scene-"] .hero .wrap::before {
+    animation: none !important;
+  }
+}
+
+</style>
+</head>
+<body class="scene-cars">
+
+<div class="grain"></div>
+
+<!-- ===== TICKER ===== -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
+    <span>LOT 01 — F8 SPIDER</span>
+    <span class="dot">·</span>
+    <span>LOT 04 — URUS S</span>
+    <span class="dot">·</span>
+    <span>LOT 12 — G63 BRABUS</span>
+    <span class="dot">·</span>
+    <span>LOT 17 — CULLINAN</span>
+    <span class="dot">·</span>
+    <span>LOT 19 — DAWN</span>
+    <span class="dot">·</span>
+    <span>LOT 01 — F8 SPIDER</span>
+    <span class="dot">·</span>
+    <span>LOT 04 — URUS S</span>
+    <span class="dot">·</span>
+    <span>LOT 12 — G63 BRABUS</span>
+    <span class="dot">·</span>
+    <span>LOT 17 — CULLINAN</span>
+    <span class="dot">·</span>
+    <span>LOT 19 — DAWN</span>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="wordmark">GG <span>ELITE</span></a>
+    <nav class="primary-nav">
+      <a href="cars.html" class="is-current">Cars</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="cruises.html">Cruises</a>
+      <a href="events.html">Sports Events</a>
+      <a href="nightlife.html">Nightlife</a>
+      <a href="yachts.html">Yacht Rentals</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero hero-compact" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Miami, Florida · Exotic &amp; Luxury Fleet</p>
+      <h1>Nineteen lots.<br>One call.</h1>
+      <p class="hero-sub">GG Elite Concierge sources and books exotic and luxury vehicles for clients across Miami, Florida. You call, we coordinate, you drive. No showroom visit required.</p>
+      <div class="hero-actions">
+        <a href="#fleet" class="btn btn-ghost">View the Fleet</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-row"><span>Active Lots</span><strong>19</strong></div>
+      <div class="panel-row"><span>Markets</span><strong>Miami, FL only</strong></div>
+      <div class="panel-row"><span>Booking</span><strong>Call / Form</strong></div>
+      <div class="panel-row"><span>Coverage</span><strong>Full, on file</strong></div>
+      <div class="panel-foot">Deposit and full-coverage insurance required on every reservation. Terms confirmed at booking.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FLEET ===== -->
+<section class="fleet" id="fleet">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The Catalog</p>
+      <h2>The Fleet</h2>
+      <p class="section-sub">Every lot below is presently available. Rates vary by day and demand — call or submit a request and we'll confirm pricing for your dates.</p>
+    </div>
+
+    <div class="fleet-filter" role="tablist" aria-label="Filter fleet by class">
+      <button class="filter-btn is-active" data-filter="all">All Lots</button>
+      <button class="filter-btn" data-filter="supercar">Supercars</button>
+      <button class="filter-btn" data-filter="suv">SUVs</button>
+      <button class="filter-btn" data-filter="sedan">Sedans</button>
+      <button class="filter-btn" data-filter="ultra">Ultra-Luxury</button>
+    </div>
+
+    <div class="fleet-grid" id="fleetGrid"><!-- injected by js/fleet.js --></div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how" id="how">
+  <div class="wrap how-grid">
+    <div class="section-head">
+      <p class="eyebrow">The Process</p>
+      <h2>How it works</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="step-mark">Call</span>
+        <h3>You call or submit the form</h3>
+        <p>Tell us the lot, the dates, and the occasion. We confirm availability directly with the fleet.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-mark">Confirm</span>
+        <h3>We send you two numbers</h3>
+        <p>The rental total (paid to the fleet partner at pickup, plus refundable security deposit) and our concierge booking fee (paid to GG Elite to confirm).</p>
+      </div>
+      <div class="how-step">
+        <span class="step-mark">Drive</span>
+        <h3>You pick up, insured and ready</h3>
+        <p>Full coverage insurance and the security deposit are handled at pickup. We've already done the coordinating.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EVENTS / SURGE ===== -->
+<section class="events" id="events">
+  <div class="wrap events-grid">
+    <div class="events-copy">
+      <p class="eyebrow">High Season &amp; Major Events</p>
+      <h2>Some weekends aren't regular weekends.</h2>
+      <p>FIFA World Cup Miami, Art Basel, F1, NYE, peak summer travel — demand on exotic inventory rises fast when the city fills up. Lots booked during major events or designated high-demand windows are quoted at event-tier pricing, confirmed at the time of your call.</p>
+    </div>
+    <div class="events-card">
+      <p class="events-card-label">Standard vs. Event Window</p>
+      <div class="events-row"><span>Regular days</span><span>Standard rate</span></div>
+      <div class="events-row"><span>Major events / peak season</span><span>Event rate applies</span></div>
+      <div class="events-row"><span>Security deposit</span><span>$1,000 · paid at pickup</span></div>
+      <div class="events-row"><span>Insurance</span><span>Full coverage required</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOK / CONTACT ===== -->
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div class="section-head">
+      <p class="eyebrow">Submit a Request</p>
+      <h2>Submit a request<br>and we'll call you</h2>
+    </div>
+    <div class="book-panel">
+      <form class="book-form" id="bookForm" action="https://formspree.io/f/ggelitec@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New CAR booking request — GG Elite Concierge">
+        <div class="field-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field-row">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="field-row">
+          <label for="lot">Lot of Interest</label>
+          <select id="lot" name="lot">
+            <option value="">Select a lot…</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <label for="dates">Dates Needed</label>
+          <input type="text" id="dates" name="dates" placeholder="e.g. July 4–6">
+        </div>
+        <div class="field-row">
+          <label for="notes">Notes / Occasion</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Birthday, wedding, World Cup, etc."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-large">Submit Booking Request</button>
+        <p class="form-note" id="formNote">Submit your request and we'll reach out to confirm.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="wordmark">GG <span>ELITE</span></div>
+    <nav class="footer-nav">
+      <a href="cars.html">Cars</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="cruises.html">Cruises</a>
+      <a href="events.html">Sports Events</a>
+      <a href="nightlife.html">Nightlife</a>
+      <a href="yachts.html">Yacht Rentals</a>
+    </nav>
+    <p class="footer-disclosure">GG Elite Concierge is an independent booking service. Vehicles are owned and serviced by our partner fleet. Security deposits, full-coverage insurance, and rental terms are governed by the fleet partner at the time of pickup. Pricing subject to confirmation.</p>
+    <p class="footer-copy">© 2026 GG Elite Concierge · Miami, FL</p>
+  </div>
+</footer>
+
+<script>
+// GG Elite Concierge — Fleet Catalog
+// Specs are representative for the named trim/year; confirm exact configuration with fleet partner.
+
+const FLEET = [
+  {
+    lot: "01",
+    name: "Ferrari F8 Spider",
+    color: "Rosso Corsa Red",
+    class: "supercar",
+    year: "2021–2022",
+    engine: "3.9L Twin-Turbo V8",
+    hp: "710 hp",
+    zeroSixty: "2.7s",
+    price: 1499,
+    note: "Convertible. The flagship lot — book ahead for weekends.",
+    image: "01-f8-spider.jpg"
+  },
+  {
+    lot: "02",
+    name: "Lamborghini Huracán",
+    color: "Blue",
+    class: "supercar",
+    year: "2020–2022",
+    engine: "5.2L V10",
+    hp: "631 hp",
+    zeroSixty: "2.9s",
+    price: 1099,
+    note: "Naturally aspirated V10 — one of the last of its kind.",
+    image: "02-huracan-blue.jpg"
+  },
+  {
+    lot: "03",
+    name: "Lamborghini Huracán EVO Spider",
+    color: "—",
+    class: "supercar",
+    year: "2023",
+    engine: "5.2L V10",
+    hp: "640 hp",
+    zeroSixty: "3.0s",
+    price: 1099,
+    note: "Open-top EVO. Rear-wheel steering, sharper everything.",
+    image: "03-huracan-evo-spider-white.jpg"
+  },
+  {
+    lot: "04",
+    name: "Lamborghini Urus S",
+    color: "Black, Gloss",
+    class: "suv",
+    year: "2024",
+    engine: "4.0L Twin-Turbo V8",
+    hp: "657 hp",
+    zeroSixty: "3.3s",
+    price: 999,
+    note: "Super-SUV. Seats 4, daily-drivable, still a Lambo.",
+    image: "04-urus-s-black-gloss.jpg"
+  },
+  {
+    lot: "05",
+    name: "Lamborghini Urus S",
+    color: "Black / Red",
+    class: "suv",
+    year: "2024",
+    engine: "4.0L Twin-Turbo V8",
+    hp: "657 hp",
+    zeroSixty: "3.3s",
+    price: 999,
+    note: "Two-tone interior accents.",
+    image: "05-urus-s-black-red.jpg"
+  },
+  {
+    lot: "06",
+    name: "Lamborghini Urus S",
+    color: "Matte Black",
+    class: "suv",
+    year: "2023–2024",
+    engine: "4.0L Twin-Turbo V8",
+    hp: "657 hp",
+    zeroSixty: "3.3s",
+    price: 999,
+    note: "Matte wrap, blacked-out trim.",
+    image: "06-urus-s-matte-black.jpg"
+  },
+  {
+    lot: "07",
+    name: "Lamborghini Urus S",
+    color: "Nardo Grey",
+    class: "suv",
+    year: "2023–2024",
+    engine: "4.0L Twin-Turbo V8",
+    hp: "657 hp",
+    zeroSixty: "3.3s",
+    price: 999,
+    note: "Factory Lamborghini heritage color.",
+    image: "07-urus-s-nardo.jpg"
+  },
+  {
+    lot: "08",
+    name: "Lamborghini Urus S",
+    color: "White / Red",
+    class: "suv",
+    year: "2023–2024",
+    engine: "4.0L Twin-Turbo V8",
+    hp: "657 hp",
+    zeroSixty: "3.3s",
+    price: 999,
+    note: "Contrast interior stitching.",
+    image: "08-urus-s-white-red-a.jpg"
+  },
+  {
+    lot: "09",
+    name: "Lamborghini Urus S",
+    color: "White / Red",
+    class: "suv",
+    year: "2023–2024",
+    engine: "4.0L Twin-Turbo V8",
+    hp: "657 hp",
+    zeroSixty: "3.3s",
+    price: 999,
+    note: "Second unit — same spec, often available when Lot 08 is booked.",
+    image: "09-urus-s-white-red-b.jpg"
+  },
+  {
+    lot: "10",
+    name: "Mercedes-Benz Brabus G-Wagon",
+    color: "Dark Grey",
+    class: "suv",
+    year: "2024",
+    engine: "4.0L Biturbo V8 (Brabus-tuned)",
+    hp: "800+ hp (Brabus 800 spec)",
+    zeroSixty: "3.7s",
+    price: 649,
+    note: "Widebody Brabus kit over the G-Class platform.",
+    image: "10-brabus-dark-grey.jpg"
+  },
+  {
+    lot: "11",
+    name: "Mercedes-Benz G550",
+    color: "Black / Orange",
+    class: "suv",
+    year: "2020",
+    engine: "4.0L Biturbo V8",
+    hp: "416 hp",
+    zeroSixty: "5.6s",
+    price: 649,
+    note: "Status edition trim. Boxy classic G silhouette.",
+    image: "11-g550-black-orange.jpg"
+  },
+  {
+    lot: "12",
+    name: "Mercedes-Benz G550 \"Rocket\"",
+    color: "Black / Red",
+    class: "suv",
+    year: "2021–2022",
+    engine: "4.0L Biturbo V8",
+    hp: "416 hp",
+    zeroSixty: "5.6s",
+    price: 649,
+    note: "Custom Rocket-edition styling package.",
+    image: "12-g550-rocket-black-red.jpg"
+  },
+  {
+    lot: "13",
+    name: "Mercedes-AMG G63 Brabus",
+    color: "Black / Red",
+    class: "suv",
+    year: "2021",
+    engine: "4.0L Biturbo V8 (Brabus-tuned)",
+    hp: "800 hp (Brabus 800 spec)",
+    zeroSixty: "3.8s",
+    price: 649,
+    note: "Status edition. The most aggressive G in the lineup.",
+    image: "13-g63-brabus-black-red.jpg"
+  },
+  {
+    lot: "14",
+    name: "Mercedes-Maybach GLS 600",
+    color: "Silver",
+    class: "ultra",
+    year: "2024",
+    engine: "4.0L Biturbo V8 + EQ Boost",
+    hp: "557 hp",
+    zeroSixty: "4.9s",
+    price: 649,
+    note: "Status edition. Full-size Maybach luxury SUV.",
+    image: "14-gls600-silver-a.jpg"
+  },
+  {
+    lot: "15",
+    name: "Mercedes-Maybach GLS 600",
+    color: "Silver / Grey",
+    class: "ultra",
+    year: "2021",
+    engine: "4.0L Biturbo V8 + EQ Boost",
+    hp: "557 hp",
+    zeroSixty: "4.9s",
+    price: 649,
+    note: "Status edition. Reclining rear captain's chairs.",
+    image: "15-gls600-silver-b.jpg"
+  },
+  {
+    lot: "16",
+    name: "Mercedes-Maybach GLS",
+    color: "Matte Black",
+    class: "ultra",
+    year: "2022–2023",
+    engine: "4.0L Biturbo V8 + EQ Boost",
+    hp: "483–557 hp",
+    zeroSixty: "5.0s",
+    price: 649,
+    note: "Matte finish, blacked-out Maybach grille.",
+    image: "16-gls-maybach-matte-black.jpg"
+  },
+  {
+    lot: "17",
+    name: "Mercedes-Maybach GLS",
+    color: "Black / Gold",
+    class: "ultra",
+    year: "2022–2023",
+    engine: "4.0L Biturbo V8 + EQ Boost",
+    hp: "483–557 hp",
+    zeroSixty: "5.0s",
+    price: 649,
+    note: "Gold trim accents — frequently requested for events.",
+    image: "17-gls-maybach-black-gold.jpg"
+  },
+  {
+    lot: "18",
+    name: "Rolls-Royce Cullinan",
+    color: "White / Purple",
+    class: "ultra",
+    year: "2022–2023",
+    engine: "6.75L Twin-Turbo V12",
+    hp: "563 hp",
+    zeroSixty: "4.9s",
+    price: 1399,
+    note: "Rolls-Royce's SUV. Starlight headliner available.",
+    image: "18-cullinan-white-purple.jpg"
+  },
+  {
+    lot: "19",
+    name: "Rolls-Royce Dawn",
+    color: "White / Red",
+    class: "ultra",
+    year: "2021–2022",
+    engine: "6.6L Twin-Turbo V12",
+    hp: "563 hp",
+    zeroSixty: "4.9s",
+    price: 1399,
+    note: "Convertible. The drophead grand tourer of the fleet.",
+    image: "19-dawn-white-red.jpg"
+  }
+];
+
+</script>
+<script>
+// GG Elite Concierge — Site Behavior
+
+(function () {
+  const grid = document.getElementById('fleetGrid');
+  const lotSelect = document.getElementById('lot');
+
+  function renderFleet(filter) {
+    grid.innerHTML = '';
+    const items = filter === 'all' ? FLEET : FLEET.filter(c => c.class === filter);
+
+    items.forEach((car) => {
+      const card = document.createElement('article');
+      card.className = 'lot-card';
+      card.innerHTML = `
+        <div class="lot-photo">
+          <img src="${car.image}" alt="${car.name} — ${car.color}" loading="lazy">
+          <span class="lot-photo-num">LOT ${car.lot}</span>
+        </div>
+        <div class="lot-card-body">
+          <div class="lot-card-top">
+            <span class="lot-year">${car.year}</span>
+          </div>
+          <h3 class="lot-name">${car.name}</h3>
+          <p class="lot-color">${car.color}</p>
+          <dl class="lot-specs">
+            <div><dt>Engine</dt><dd>${car.engine}</dd></div>
+            <div><dt>Output</dt><dd>${car.hp}</dd></div>
+            <div><dt>0–60</dt><dd>${car.zeroSixty}</dd></div>
+          </dl>
+          <p class="lot-note">${car.note}</p>
+          <div class="lot-foot">
+            <a href="#book" class="btn btn-primary btn-small lot-select" data-lot-num="${car.lot}">Call/Booking for Availability</a>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function populateLotSelect() {
+    FLEET.forEach((car) => {
+      const opt = document.createElement('option');
+      opt.value = `Lot ${car.lot} — ${car.name}`;
+      opt.textContent = `Lot ${car.lot} — ${car.name} (${car.year})`;
+      opt.dataset.lotNum = car.lot;
+      lotSelect.appendChild(opt);
+    });
+  }
+
+  function bindFilters() {
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        renderFleet(btn.dataset.filter);
+      });
+    });
+  }
+
+  function bindLotSelectClicks() {
+    grid.addEventListener('click', (e) => {
+      const target = e.target.closest('.lot-select');
+      if (!target) return;
+      const lotNum = target.dataset.lotNum;
+      const select = document.getElementById('lot');
+      for (const opt of select.options) {
+        if (opt.dataset.lotNum === lotNum) {
+          select.value = opt.value;
+          break;
+        }
+      }
+      // give the anchor scroll a moment, then focus the first empty field
+      setTimeout(() => {
+        const nameField = document.getElementById('name');
+        if (nameField) nameField.focus();
+      }, 450);
+    });
+  }
+
+  function bindForm() {
+    const form = document.getElementById('bookForm');
+    const note = document.getElementById('formNote');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      note.textContent = '';
+      note.classList.remove('form-note-success', 'form-note-error');
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      })
+        .then((res) => {
+          if (res.ok) {
+            note.textContent = 'Request received — we\'ll reach out shortly to confirm.';
+            note.classList.add('form-note-success');
+            form.reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+        })
+        .catch(() => {
+          note.textContent = 'Something went wrong sending that — please call us directly instead.';
+          note.classList.add('form-note-error');
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Booking Request';
+        });
+    });
+  }
+
+  renderFleet('all');
+  populateLotSelect();
+  bindFilters();
+  bindLotSelectClicks();
+  bindForm();
+})();
+
+</script>
+</body>
+</html>
